@@ -34,15 +34,12 @@
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Mobile Optimization: Snap-to-section scroll for mobile users */
+        /* Mobile full-width snap styling */
         @media (max-width: 768px) {
-            .mobile-snap-container {
-                scroll-snap-type: y proximity;
-                overflow-y: auto;
-            }
             .video-item {
                 scroll-snap-align: center;
-                margin-bottom: 2rem;
+                margin-bottom: 3rem;
+                padding: 0 10px;
             }
         }
     </style>
@@ -56,88 +53,88 @@
         <div class="font-sync text-xl tracking-tighter uppercase">Virat<span class="text-yellow-400">.</span></div>
         <div class="flex gap-6 md:gap-8 items-center text-[10px] tracking-widest uppercase font-bold">
             <a href="https://instagram.com/virat_2910_" target="_blank" class="hover:text-yellow-400 transition">Instagram</a>
-            <a href="https://wa.me/919879686692" target="_blank" class="bg-yellow-400 text-black px-6 py-2.5 rounded-full hover:bg-white transition-all">Let's Work</a>
+            <a href="https://wa.me/919879686692" target="_blank" class="bg-yellow-400 text-black px-6 py-2.5 rounded-full hover:bg-white transition-all shadow-lg shadow-yellow-400/10">Let's Work</a>
         </div>
     </nav>
 
     <section class="h-screen flex flex-col justify-center px-8 md:px-24 relative overflow-hidden">
         <div class="reveal-hero z-10">
-            <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] uppercase mb-6">Vadodara • Gujarat</p>
+            <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] uppercase mb-6 italic">Vadodara, Gujarat</p>
             <h1 class="font-sync text-5xl md:text-[8vw] leading-[0.85] uppercase tracking-tighter">
-                Attention<br><span class="text-outline">Engineer.</span>
+                Creative<br><span class="text-outline">Director</span><br>& Editor<span class="text-yellow-400">.</span>
             </h1>
             <p class="mt-10 text-zinc-400 text-sm md:text-lg max-w-lg leading-relaxed font-light">
-                Engineering high-retention visual assets that convert casual scrolling into brand authority.
+                Specializing in high-retention visual assets and narrative-driven edits that dominate the social feed.
             </p>
         </div>
     </section>
 
     <div class="py-12 marquee-container">
         <div class="marquee-content font-sync text-2xl md:text-4xl text-zinc-800 uppercase gap-20">
-            <span>Viral Edits</span> <span>•</span> <span>9:16 Cinema</span> <span>•</span> <span>Color Mastery</span> <span>•</span> <span>Sound Design</span> <span>•</span>
-            <span>Viral Edits</span> <span>•</span> <span>9:16 Cinema</span> <span>•</span> <span>Color Mastery</span> <span>•</span> <span>Sound Design</span> <span>•</span>
+            <span>Viral Hooks</span> <span>•</span> <span>Cinematography</span> <span>•</span> <span>Color Grading</span> <span>•</span> <span>Sound Design</span> <span>•</span>
+            <span>Viral Hooks</span> <span>•</span> <span>Cinematography</span> <span>•</span> <span>Color Grading</span> <span>•</span> <span>Sound Design</span> <span>•</span>
         </div>
     </div>
 
-    <section class="py-32 px-4 md:px-24">
-        <div class="reveal mb-24 px-4 md:px-0 text-center md:text-left">
-            <span class="text-yellow-400 text-[10px] font-bold tracking-widest uppercase italic">// 2025 - 2026</span>
+    <section class="py-32 px-4 md:px-24 bg-black/20">
+        <div class="reveal mb-24 px-4 md:px-0">
+            <span class="text-yellow-400 text-[10px] font-bold tracking-widest uppercase italic">// 2025 - 2026 Season</span>
             <h2 class="font-sync text-4xl md:text-7xl uppercase tracking-tighter mt-4">The Gallery</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mobile-snap-container">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             <div class="reveal video-item">
-                <div class="video-card rounded-3xl overflow-hidden p-2 relative group">
+                <div class="video-card rounded-3xl overflow-hidden p-2 relative">
                     <div class="absolute top-6 left-6 z-10">
-                        <span class="bg-black/60 backdrop-blur-md border border-white/10 text-yellow-400 text-[9px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">Automotive</span>
+                        <span class="bg-black/70 backdrop-blur-md border border-white/10 text-yellow-400 text-[8px] font-bold px-3 py-1.5 rounded-full tracking-widest uppercase">Automotive</span>
                     </div>
-                    <div class="aspect-[9/16] rounded-2xl overflow-hidden">
+                    <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-zinc-900">
                         <iframe src="https://player.vimeo.com/video/1151298890?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                     </div>
                 </div>
             </div>
             
             <div class="reveal video-item">
-                <div class="video-card rounded-3xl overflow-hidden p-2 relative group">
+                <div class="video-card rounded-3xl overflow-hidden p-2 relative">
                     <div class="absolute top-6 left-6 z-10">
-                        <span class="bg-black/60 backdrop-blur-md border border-white/10 text-yellow-400 text-[9px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">Product Showcase</span>
+                        <span class="bg-black/70 backdrop-blur-md border border-white/10 text-yellow-400 text-[8px] font-bold px-3 py-1.5 rounded-full tracking-widest uppercase">Product Showcase</span>
                     </div>
-                    <div class="aspect-[9/16] rounded-2xl overflow-hidden">
+                    <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-zinc-900">
                         <iframe src="https://player.vimeo.com/video/1151298860?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                     </div>
                 </div>
             </div>
 
             <div class="reveal video-item">
-                <div class="video-card rounded-3xl overflow-hidden p-2 relative group">
+                <div class="video-card rounded-3xl overflow-hidden p-2 relative">
                     <div class="absolute top-6 left-6 z-10">
-                        <span class="bg-black/60 backdrop-blur-md border border-white/10 text-yellow-400 text-[9px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">Fashion</span>
+                        <span class="bg-black/70 backdrop-blur-md border border-white/10 text-yellow-400 text-[8px] font-bold px-3 py-1.5 rounded-full tracking-widest uppercase">Fashion & Style</span>
                     </div>
-                    <div class="aspect-[9/16] rounded-2xl overflow-hidden">
+                    <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-zinc-900">
                         <iframe src="https://player.vimeo.com/video/1151298845?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-10 mt-6 md:mt-10">
-            <div class="reveal video-item w-full md:w-[31.5%]">
-                <div class="video-card rounded-3xl overflow-hidden p-2 relative group">
+        <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-10 mt-8 md:mt-10">
+            <div class="reveal video-item w-full md:w-[31%]">
+                <div class="video-card rounded-3xl overflow-hidden p-2 relative">
                     <div class="absolute top-6 left-6 z-10">
-                        <span class="bg-black/60 backdrop-blur-md border border-white/10 text-yellow-400 text-[9px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">Lifestyle</span>
+                        <span class="bg-black/70 backdrop-blur-md border border-white/10 text-yellow-400 text-[8px] font-bold px-3 py-1.5 rounded-full tracking-widest uppercase">Lifestyle</span>
                     </div>
-                    <div class="aspect-[9/16] rounded-2xl overflow-hidden">
+                    <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-zinc-900">
                         <iframe src="https://player.vimeo.com/video/1151298802?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                     </div>
                 </div>
             </div>
             
-            <div class="reveal video-item w-full md:w-[31.5%]">
-                <div class="video-card rounded-3xl overflow-hidden p-2 relative group">
+            <div class="reveal video-item w-full md:w-[31%]">
+                <div class="video-card rounded-3xl overflow-hidden p-2 relative">
                     <div class="absolute top-6 left-6 z-10">
-                        <span class="bg-black/60 backdrop-blur-md border border-white/10 text-yellow-400 text-[9px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">Cinematic</span>
+                        <span class="bg-black/70 backdrop-blur-md border border-white/10 text-yellow-400 text-[8px] font-bold px-3 py-1.5 rounded-full tracking-widest uppercase">Cinematic narrative</span>
                     </div>
-                    <div class="aspect-[9/16] rounded-2xl overflow-hidden">
+                    <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-zinc-900">
                         <iframe src="https://player.vimeo.com/video/1151298775?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                     </div>
                 </div>
@@ -145,9 +142,9 @@
         </div>
     </section>
 
-    <footer class="py-40 px-8 text-center bg-black/20">
+    <footer class="py-40 px-8 text-center bg-black/40 border-t border-white/5">
         <div class="reveal">
-            <h2 class="font-sync text-4xl md:text-8xl leading-none uppercase tracking-tighter mb-16 italic text-yellow-400">Let's Scale.</h2>
+            <h2 class="font-sync text-4xl md:text-8xl leading-none uppercase tracking-tighter mb-16 italic text-yellow-400">Let's Create.</h2>
             <div class="flex flex-col items-center gap-10">
                 <a href="https://wa.me/919879686692" target="_blank" class="text-xl md:text-4xl font-bold underline underline-offset-[12px] decoration-white/20 hover:decoration-yellow-400 transition-all">WhatsApp Direct</a>
                 <div class="flex flex-col md:flex-row items-center gap-10 mt-16 text-[10px] uppercase tracking-[0.4em] text-zinc-500 font-bold">

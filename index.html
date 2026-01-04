@@ -3,117 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIRAT | Brand Shoots & Edits</title>
+    <title>VIRAT | Cinematic Brand Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@200;500;800&display=swap');
         
-        body { background-color: #000; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        body { background-color: #050505; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; cursor: none; }
         .font-sync { font-family: 'Syncopate', sans-serif; }
-        .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; }
+        .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.4); color: transparent; }
         
-        .hero-gradient {
-            background: radial-gradient(circle at 20% 30%, #1e1b4b 0%, #000 50%);
-        }
+        /* Custom Cursor */
+        #cursor { width: 20px; height: 20px; background: #facc15; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-difference: difference; transition: transform 0.1s ease; }
+        #cursor-blur { width: 200px; height: 200px; background: rgba(250, 204, 21, 0.15); filter: blur(80px); position: fixed; pointer-events: none; z-index: 9998; border-radius: 50%; }
 
-        .reveal { opacity: 0; transform: translateY(40px); }
+        .hero-gradient { background: radial-gradient(circle at 10% 20%, #1e1b4b 0%, #050505 60%); }
+        .reveal { opacity: 0; transform: translateY(50px); }
         
-        body::before {
-            content: " ";
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            z-index: 100; background-size: 100% 2px, 3px 100%; pointer-events: none;
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
+        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
+        .marquee-content { display: flex; animation: marquee 20s linear infinite; }
 
-        .contact-link { transition: all 0.3s ease; }
-        .contact-link:hover { color: #facc15; letter-spacing: 1px; }
+        /* Video Card Polish */
+        .video-card { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); filter: grayscale(20%); }
+        .video-card:hover { transform: scale(1.02); filter: grayscale(0%); border-color: #facc15; box-shadow: 0 0 30px rgba(250, 204, 21, 0.2); }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full z-50 p-6 md:p-8 flex justify-between items-center mix-blend-difference">
-        <div class="font-sync text-lg tracking-tighter uppercase">Virat<span class="text-yellow-400">.</span></div>
-        <div class="flex flex-col items-end gap-1">
-            <a href="tel:9879686692" class="text-[9px] tracking-[0.2em] font-bold uppercase opacity-70 contact-link">+91 98796 86692</a>
-            <a href="mailto:pvirat473@gmail.com" class="text-[9px] tracking-[0.2em] font-bold uppercase opacity-70 contact-link">pvirat473@gmail.com</a>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
+    <nav class="fixed top-0 w-full z-50 p-6 md:px-12 flex justify-between items-center backdrop-blur-md bg-black/20 border-b border-white/5">
+        <div class="font-sync text-xl tracking-tighter uppercase">Virat<span class="text-yellow-400">.</span></div>
+        <div class="flex gap-8 items-center">
+            <a href="mailto:pvirat473@gmail.com" class="hidden md:block text-[10px] tracking-widest uppercase hover:text-yellow-400 transition">Email Me</a>
+            <a href="tel:9879686692" class="bg-yellow-400 text-black px-5 py-2 rounded-full text-[10px] font-extrabold uppercase tracking-widest hover:bg-white transition duration-300">Let's Work</a>
         </div>
     </nav>
 
-    <section class="h-screen flex flex-col justify-center px-8 md:px-24 hero-gradient">
-        <div class="reveal-hero">
-            <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] mb-6 uppercase">One Month. Infinite Impact.</p>
-            <h1 class="font-sync text-5xl md:text-8xl leading-[0.85] uppercase tracking-tighter">
-                Stop the<br><span class="text-outline">Scroll.</span><br>Start the<br><span class="text-yellow-400">Story.</span>
+    <section class="h-screen flex flex-col justify-center px-8 md:px-24 hero-gradient relative overflow-hidden">
+        <div class="reveal-hero z-10">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="h-[1px] w-12 bg-yellow-400"></span>
+                <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] uppercase">Based in India • Working Worldwide</p>
+            </div>
+            <h1 class="font-sync text-5xl md:text-[7vw] leading-[0.9] uppercase tracking-tighter">
+                Capturing<br><span class="text-outline italic">The Vibe.</span><br>Directing<br><span class="text-yellow-400">The Vision.</span>
             </h1>
-            <p class="mt-10 text-zinc-400 text-sm md:text-lg max-w-lg leading-relaxed font-light">
-                I help modern brands capture attention in the first 3 seconds through cinematic cinematography and high-retention editing.
-            </p>
+            <div class="mt-12 flex flex-col md:flex-row gap-10 md:items-center">
+                <p class="text-zinc-400 text-sm md:text-lg max-w-sm leading-relaxed font-light">
+                    Specializing in high-retention brand storytelling that turns casual viewers into loyal customers.
+                </p>
+                <div class="flex gap-4">
+                    <div class="flex flex-col">
+                        <span class="font-sync text-2xl text-white">05+</span>
+                        <span class="text-[9px] uppercase tracking-widest text-zinc-500">Premium Edits</span>
+                    </div>
+                    <div class="h-10 w-[1px] bg-zinc-800 self-center"></div>
+                    <div class="flex flex-col">
+                        <span class="font-sync text-2xl text-white">4K</span>
+                        <span class="text-[9px] uppercase tracking-widest text-zinc-500">Master Quality</span>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="absolute bottom-10 right-[-5%] font-sync text-[20vw] text-white/[0.02] select-none pointer-events-none uppercase">Virat</div>
     </section>
 
+    <div class="py-10 border-y border-zinc-900 bg-zinc-950 marquee-container">
+        <div class="marquee-content font-sync text-2xl md:text-4xl text-zinc-800 uppercase gap-20">
+            <span>Cinematography</span> <span>•</span> <span>Color Grading</span> <span>•</span> <span>VFX Edits</span> <span>•</span> <span>Brand Storytelling</span> <span>•</span>
+            <span>Cinematography</span> <span>•</span> <span>Color Grading</span> <span>•</span> <span>VFX Edits</span> <span>•</span> <span>Brand Storytelling</span> <span>•</span>
+        </div>
+    </div>
+
     <section class="py-32 px-8 md:px-24 bg-black">
-        <div class="reveal mb-20 text-center md:text-left">
-            <span class="text-yellow-400 text-[10px] font-bold tracking-widest uppercase italic">// Primary Works</span>
-            <h2 class="font-sync text-3xl md:text-5xl uppercase mt-2">Social Impact</h2>
-            <p class="text-zinc-500 text-xs uppercase tracking-widest mt-4 italic">9:16 Optimized Brand Content</p>
+        <div class="reveal flex flex-col md:flex-row justify-between items-end mb-24 gap-6">
+            <div>
+                <h2 class="font-sync text-4xl md:text-6xl uppercase tracking-tighter">Selected<br><span class="text-outline">Works</span></h2>
+            </div>
+            <p class="text-zinc-500 text-[10px] uppercase tracking-[0.3em] mb-2">Scroll to explore // 2024-2025</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div class="reveal">
-                <div class="aspect-[9/16] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2">
+                <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298890?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
-            <div class="reveal">
-                <div class="aspect-[9/16] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2">
+                <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298860?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
-            <div class="reveal">
-                <div class="aspect-[9/16] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2">
+                <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298845?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row justify-center gap-8">
-            <div class="reveal w-full md:w-[calc(33.33%-1.33rem)]">
-                <div class="aspect-[9/16] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+        <div class="flex flex-col md:flex-row justify-center gap-10">
+            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2 w-full md:w-[31.5%]">
+                <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298802?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
-            <div class="reveal w-full md:w-[calc(33.33%-1.33rem)]">
-                <div class="aspect-[9/16] bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2 w-full md:w-[31.5%]">
+                <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298775?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-40 px-8 text-center bg-zinc-950 border-t border-zinc-900">
-        <div class="reveal">
-            <h2 class="font-sync text-4xl md:text-7xl leading-none uppercase tracking-tighter mb-12">Let's Talk.</h2>
-            <div class="flex flex-col items-center gap-6">
-                <a href="mailto:pvirat473@gmail.com" class="text-xl md:text-3xl font-black hover:text-yellow-400 transition-colors">pvirat473@gmail.com</a>
-                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-10 border-t border-white/10 pt-8 mt-4">
-                    <a href="tel:9879686692" class="text-xs uppercase tracking-[0.3em] font-medium text-zinc-400 hover:text-white transition">+91 98796 86692</a>
-                    <p class="text-[9px] uppercase tracking-[0.5em] text-zinc-600 font-bold">Vadodara, India</p>
+    <footer class="py-40 px-8 text-center bg-zinc-950 relative overflow-hidden">
+        <div class="reveal z-10 relative">
+            <h2 class="font-sync text-4xl md:text-8xl leading-none uppercase tracking-tighter mb-16">Create the<br><span class="text-yellow-400">Unforgettable.</span></h2>
+            <div class="flex flex-col items-center gap-8">
+                <a href="mailto:pvirat473@gmail.com" class="text-xl md:text-3xl font-bold hover:tracking-widest transition-all duration-500 underline decoration-yellow-400 decoration-2 underline-offset-8">pvirat473@gmail.com</a>
+                
+                <div class="flex flex-col md:flex-row items-center gap-6 mt-12 border-t border-white/5 pt-12">
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-zinc-500">Phone: +91 98796 86692</p>
+                    <span class="hidden md:block h-1 w-1 bg-zinc-800 rounded-full"></span>
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-zinc-500">Instagram: @virat_portfolio</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
+        // Custom Cursor Logic
+        const cursor = document.querySelector('#cursor');
+        const blur = document.querySelector('#cursor-blur');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            blur.style.left = e.clientX - 100 + 'px';
+            blur.style.top = e.clientY - 100 + 'px';
+        });
+
+        // Animations
         gsap.registerPlugin(ScrollTrigger);
-        gsap.from(".reveal-hero", { opacity: 0, x: -50, duration: 1.5, ease: "power4.out" });
+        
+        gsap.from(".reveal-hero", { opacity: 0, y: 100, duration: 1.5, ease: "power4.out" });
+        
         gsap.utils.toArray(".reveal").forEach(el => {
             gsap.to(el, {
-                scrollTrigger: { trigger: el, start: "top 90%" },
-                opacity: 1, y: 0, duration: 1.2, ease: "power2.out"
+                scrollTrigger: { trigger: el, start: "top 85%" },
+                opacity: 1, y: 0, duration: 1, ease: "power2.out"
             });
         });
     </script>

@@ -10,25 +10,50 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@200;500;800&display=swap');
         
-        body { background-color: #050505; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; cursor: none; }
-        .font-sync { font-family: 'Syncopate', sans-serif; }
-        .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.4); color: transparent; }
-        
-        #cursor { width: 20px; height: 20px; background: #facc15; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-difference: difference; transition: transform 0.1s ease; }
-        #cursor-blur { width: 200px; height: 200px; background: rgba(250, 204, 21, 0.15); filter: blur(80px); position: fixed; pointer-events: none; z-index: 9998; border-radius: 50%; }
-
-        .hero-gradient { background: radial-gradient(circle at 10% 20%, #1e1b4b 0%, #050505 60%); }
-        .reveal { opacity: 0; transform: translateY(50px); }
-        
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        /* New Attractive Background: Deep Navy to Dark Charcoal */
+        body { 
+            background: linear-gradient(135deg, #0a0a0c 0%, #111116 50%, #0d0d12 100%);
+            color: #fff; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden; 
+            cursor: none; 
         }
-        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
-        .marquee-content { display: flex; animation: marquee 20s linear infinite; }
+        
+        .font-sync { font-family: 'Syncopate', sans-serif; }
+        
+        /* Outline text now has a slight cyan tint for pop */
+        .text-outline { -webkit-text-stroke: 1px rgba(0, 255, 242, 0.3); color: transparent; }
+        
+        /* Enhanced Cursor */
+        #cursor { width: 12px; height: 12px; background: #facc15; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; shadow: 0 0 15px #facc15; }
+        #cursor-blur { width: 300px; height: 300px; background: radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, transparent 70%); position: fixed; pointer-events: none; z-index: 9998; border-radius: 50%; }
 
-        .video-card { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); filter: grayscale(20%); }
-        .video-card:hover { transform: scale(1.02); filter: grayscale(0%); border-color: #facc15; box-shadow: 0 0 30px rgba(250, 204, 21, 0.2); }
+        /* Hero Glow */
+        .hero-glow {
+            position: absolute; top: 20%; left: 10%; width: 40vw; height: 40vw;
+            background: radial-gradient(circle, rgba(30, 27, 75, 0.4) 0%, transparent 70%);
+            z-index: 1; pointer-events: none;
+        }
+
+        .reveal { opacity: 0; transform: translateY(40px); }
+        
+        /* Marquee Polish */
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; background: rgba(255,255,255,0.02); }
+        .marquee-content { display: flex; animation: marquee 25s linear infinite; }
+
+        /* Card Polish: Glassmorphism */
+        .video-card { 
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .video-card:hover { 
+            transform: translateY(-10px) scale(1.02); 
+            border-color: #facc15; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(250, 204, 21, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -36,65 +61,65 @@
     <div id="cursor"></div>
     <div id="cursor-blur"></div>
 
-    <nav class="fixed top-0 w-full z-50 p-6 md:px-12 flex justify-between items-center backdrop-blur-md bg-black/20 border-b border-white/5">
+    <nav class="fixed top-0 w-full z-50 p-6 md:px-12 flex justify-between items-center backdrop-blur-xl bg-black/40 border-b border-white/5">
         <div class="font-sync text-xl tracking-tighter uppercase">Virat<span class="text-yellow-400">.</span></div>
         <div class="flex gap-8 items-center">
             <a href="mailto:pvirat473@gmail.com" class="hidden md:block text-[10px] tracking-widest uppercase hover:text-yellow-400 transition">Email Me</a>
-            <a href="https://wa.me/919879686692" target="_blank" class="bg-yellow-400 text-black px-5 py-2 rounded-full text-[10px] font-extrabold uppercase tracking-widest hover:bg-white transition duration-300">Let's Work</a>
+            <a href="https://wa.me/919879686692" target="_blank" class="bg-yellow-400 text-black px-6 py-2.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest hover:scale-105 hover:bg-white transition-all duration-300 shadow-lg shadow-yellow-400/20">Let's Work</a>
         </div>
     </nav>
 
-    <section class="h-screen flex flex-col justify-center px-8 md:px-24 hero-gradient relative overflow-hidden">
+    <section class="h-screen flex flex-col justify-center px-8 md:px-24 relative overflow-hidden">
+        <div class="hero-glow"></div>
         <div class="reveal-hero z-10">
-            <div class="flex items-center gap-3 mb-6">
+            <div class="flex items-center gap-3 mb-8">
                 <span class="h-[1px] w-12 bg-yellow-400"></span>
-                <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] uppercase">Based in India • Working in Vadodara, Gujarat</p>
+                <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] uppercase">Based in India • Vadodara, Gujarat</p>
             </div>
-            <h1 class="font-sync text-5xl md:text-[7vw] leading-[0.9] uppercase tracking-tighter">
-                Capturing<br><span class="text-outline italic">The Vibe.</span><br>Directing<br><span class="text-yellow-400">The Vision.</span>
+            <h1 class="font-sync text-5xl md:text-[7.5vw] leading-[0.85] uppercase tracking-tighter">
+                Visual<br><span class="text-outline">Impact.</span><br>Viral<br><span class="text-yellow-400">Results.</span>
             </h1>
-            <div class="mt-12 flex flex-col md:flex-row gap-10 md:items-center">
+            <div class="mt-12 flex flex-col md:flex-row gap-12 md:items-center">
                 <p class="text-zinc-400 text-sm md:text-lg max-w-sm leading-relaxed font-light">
-                    Specializing in high-retention brand storytelling that turns casual viewers into loyal customers.
+                    Transforming products into digital experiences through high-retention 9:16 cinematography and narrative editing.
                 </p>
-                <div class="flex gap-4">
-                    <div class="flex flex-col">
-                        <span class="font-sync text-2xl text-white">05+</span>
-                        <span class="text-[9px] uppercase tracking-widest text-zinc-500">Premium Edits</span>
-                    </div>
+                <div class="flex flex-col">
+                    <span class="font-sync text-3xl text-white">05+</span>
+                    <span class="text-[9px] uppercase tracking-widest text-yellow-400/60 font-bold">Premium Projects</span>
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-10 right-[-5%] font-sync text-[20vw] text-white/[0.02] select-none pointer-events-none uppercase">Virat</div>
+        <div class="absolute bottom-10 right-[-5%] font-sync text-[22vw] text-white/[0.03] select-none pointer-events-none uppercase">Studio</div>
     </section>
 
-    <div class="py-10 border-y border-zinc-900 bg-zinc-950 marquee-container">
-        <div class="marquee-content font-sync text-2xl md:text-4xl text-zinc-800 uppercase gap-20">
-            <span>Cinematography</span> <span>•</span> <span>Color Grading</span> <span>•</span> <span>VFX Edits</span> <span>•</span> <span>Brand Storytelling</span> <span>•</span>
-            <span>Cinematography</span> <span>•</span> <span>Color Grading</span> <span>•</span> <span>VFX Edits</span> <span>•</span> <span>Brand Storytelling</span> <span>•</span>
+    <div class="py-12 border-y border-white/5 marquee-container">
+        <div class="marquee-content font-sync text-2xl md:text-4xl text-zinc-700 uppercase gap-20">
+            <span>Social First</span> <span>•</span> <span>Color Mastery</span> <span>•</span> <span>Brand Cinema</span> <span>•</span> <span>Fast Delivery</span> <span>•</span>
+            <span>Social First</span> <span>•</span> <span>Color Mastery</span> <span>•</span> <span>Brand Cinema</span> <span>•</span> <span>Fast Delivery</span> <span>•</span>
         </div>
     </div>
 
-    <section class="py-32 px-8 md:px-24 bg-black">
+    <section class="py-32 px-8 md:px-24">
         <div class="reveal flex flex-col md:flex-row justify-between items-end mb-24 gap-6">
             <div>
-                <h2 class="font-sync text-4xl md:text-6xl uppercase tracking-tighter">Selected<br><span class="text-outline">Works</span></h2>
+                <span class="text-yellow-400 text-[10px] font-bold tracking-widest uppercase italic">// 2025 - 2026</span>
+                <h2 class="font-sync text-4xl md:text-7xl uppercase tracking-tighter mt-4">The Gallery</h2>
             </div>
-            <p class="text-zinc-500 text-[10px] uppercase tracking-[0.3em] mb-2">Scroll to explore // 2024-2025</p>
+            <p class="text-zinc-500 text-[10px] uppercase tracking-[0.4em] mb-4">Click to play works</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2">
+            <div class="reveal video-card rounded-3xl overflow-hidden p-2">
                 <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298890?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
-            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2">
+            <div class="reveal video-card rounded-3xl overflow-hidden p-2">
                 <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298860?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
-            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2">
+            <div class="reveal video-card rounded-3xl overflow-hidden p-2">
                 <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298845?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
@@ -102,12 +127,12 @@
         </div>
 
         <div class="flex flex-col md:flex-row justify-center gap-10">
-            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2 w-full md:w-[31.5%]">
+            <div class="reveal video-card rounded-3xl overflow-hidden p-2 w-full md:w-[31.5%]">
                 <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298802?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
             </div>
-            <div class="reveal video-card group bg-zinc-900/50 rounded-3xl overflow-hidden border border-zinc-800 p-2 w-full md:w-[31.5%]">
+            <div class="reveal video-card rounded-3xl overflow-hidden p-2 w-full md:w-[31.5%]">
                 <div class="aspect-[9/16] rounded-2xl overflow-hidden">
                     <iframe src="https://player.vimeo.com/video/1151298775?badge=0&amp;autopause=0" frameborder="0" allow="autoplay; fullscreen" class="w-full h-full"></iframe>
                 </div>
@@ -115,16 +140,19 @@
         </div>
     </section>
 
-    <footer class="py-40 px-8 text-center bg-zinc-950 relative overflow-hidden">
+    <footer class="py-40 px-8 text-center relative overflow-hidden bg-black/20">
         <div class="reveal z-10 relative">
-            <h2 class="font-sync text-4xl md:text-8xl leading-none uppercase tracking-tighter mb-16">Create the<br><span class="text-yellow-400">Unforgettable.</span></h2>
-            <div class="flex flex-col items-center gap-8">
-                <a href="mailto:pvirat473@gmail.com" class="text-xl md:text-3xl font-bold hover:tracking-widest transition-all duration-500 underline decoration-yellow-400 decoration-2 underline-offset-8">pvirat473@gmail.com</a>
+            <h2 class="font-sync text-4xl md:text-8xl leading-none uppercase tracking-tighter mb-16">Ready to<br><span class="text-yellow-400">Scale?</span></h2>
+            <div class="flex flex-col items-center gap-10">
+                <a href="https://wa.me/919879686692" target="_blank" class="group flex items-center gap-4 text-xl md:text-4xl font-bold transition-all duration-500">
+                    <span class="underline decoration-yellow-400 underline-offset-[12px]">WhatsApp Me</span>
+                    <span class="bg-yellow-400 text-black rounded-full p-2 group-hover:translate-x-3 transition-transform">→</span>
+                </a>
                 
-                <div class="flex flex-col md:flex-row items-center gap-6 mt-12 border-t border-white/5 pt-12">
-                    <p class="text-[10px] uppercase tracking-[0.4em] text-zinc-500">Phone: +91 98796 86692</p>
-                    <span class="hidden md:block h-1 w-1 bg-zinc-800 rounded-full"></span>
-                    <a href="https://wa.me/919879686692" target="_blank" class="text-[10px] uppercase tracking-[0.4em] text-zinc-500 hover:text-yellow-400 transition">WhatsApp Direct</a>
+                <div class="flex flex-col md:flex-row items-center gap-6 mt-16 border-t border-white/5 pt-12 w-full max-w-4xl justify-between">
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-zinc-500 font-bold">Vadodara, GJ</p>
+                    <a href="mailto:pvirat473@gmail.com" class="text-[10px] uppercase tracking-[0.4em] text-zinc-500 hover:text-white transition">pvirat473@gmail.com</a>
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-zinc-500">© 2026 Virat Studio</p>
                 </div>
             </div>
         </div>
@@ -134,18 +162,18 @@
         const cursor = document.querySelector('#cursor');
         const blur = document.querySelector('#cursor-blur');
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            blur.style.left = e.clientX - 100 + 'px';
-            blur.style.top = e.clientY - 100 + 'px';
+            cursor.style.left = e.clientX - 6 + 'px';
+            cursor.style.top = e.clientY - 6 + 'px';
+            blur.style.left = e.clientX - 150 + 'px';
+            blur.style.top = e.clientY - 150 + 'px';
         });
 
         gsap.registerPlugin(ScrollTrigger);
-        gsap.from(".reveal-hero", { opacity: 0, y: 100, duration: 1.5, ease: "power4.out" });
+        gsap.from(".reveal-hero", { opacity: 0, y: 80, duration: 1.5, ease: "expo.out" });
         gsap.utils.toArray(".reveal").forEach(el => {
             gsap.to(el, {
-                scrollTrigger: { trigger: el, start: "top 85%" },
-                opacity: 1, y: 0, duration: 1, ease: "power2.out"
+                scrollTrigger: { trigger: el, start: "top 90%" },
+                opacity: 1, y: 0, duration: 1.2, ease: "power3.out"
             });
         });
     </script>

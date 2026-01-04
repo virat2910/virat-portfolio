@@ -14,14 +14,12 @@
         .font-sync { font-family: 'Syncopate', sans-serif; }
         .text-outline { -webkit-text-stroke: 1px rgba(255,255,255,0.4); color: transparent; }
         
-        /* Custom Cursor */
         #cursor { width: 20px; height: 20px; background: #facc15; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; mix-blend-difference: difference; transition: transform 0.1s ease; }
         #cursor-blur { width: 200px; height: 200px; background: rgba(250, 204, 21, 0.15); filter: blur(80px); position: fixed; pointer-events: none; z-index: 9998; border-radius: 50%; }
 
         .hero-gradient { background: radial-gradient(circle at 10% 20%, #1e1b4b 0%, #050505 60%); }
         .reveal { opacity: 0; transform: translateY(50px); }
         
-        /* Marquee Animation */
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -29,7 +27,6 @@
         .marquee-container { overflow: hidden; white-space: nowrap; display: flex; }
         .marquee-content { display: flex; animation: marquee 20s linear infinite; }
 
-        /* Video Card Polish */
         .video-card { transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); filter: grayscale(20%); }
         .video-card:hover { transform: scale(1.02); filter: grayscale(0%); border-color: #facc15; box-shadow: 0 0 30px rgba(250, 204, 21, 0.2); }
     </style>
@@ -43,7 +40,7 @@
         <div class="font-sync text-xl tracking-tighter uppercase">Virat<span class="text-yellow-400">.</span></div>
         <div class="flex gap-8 items-center">
             <a href="mailto:pvirat473@gmail.com" class="hidden md:block text-[10px] tracking-widest uppercase hover:text-yellow-400 transition">Email Me</a>
-            <a href="tel:9879686692" class="bg-yellow-400 text-black px-5 py-2 rounded-full text-[10px] font-extrabold uppercase tracking-widest hover:bg-white transition duration-300">Let's Work</a>
+            <a href="https://wa.me/919879686692" target="_blank" class="bg-yellow-400 text-black px-5 py-2 rounded-full text-[10px] font-extrabold uppercase tracking-widest hover:bg-white transition duration-300">Let's Work</a>
         </div>
     </nav>
 
@@ -51,7 +48,7 @@
         <div class="reveal-hero z-10">
             <div class="flex items-center gap-3 mb-6">
                 <span class="h-[1px] w-12 bg-yellow-400"></span>
-                <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] uppercase">Based in India • Working Worldwide</p>
+                <p class="text-yellow-400 font-bold tracking-[0.5em] text-[10px] uppercase">Based in India • Working in Vadodara, Gujarat</p>
             </div>
             <h1 class="font-sync text-5xl md:text-[7vw] leading-[0.9] uppercase tracking-tighter">
                 Capturing<br><span class="text-outline italic">The Vibe.</span><br>Directing<br><span class="text-yellow-400">The Vision.</span>
@@ -64,11 +61,6 @@
                     <div class="flex flex-col">
                         <span class="font-sync text-2xl text-white">05+</span>
                         <span class="text-[9px] uppercase tracking-widest text-zinc-500">Premium Edits</span>
-                    </div>
-                    <div class="h-10 w-[1px] bg-zinc-800 self-center"></div>
-                    <div class="flex flex-col">
-                        <span class="font-sync text-2xl text-white">4K</span>
-                        <span class="text-[9px] uppercase tracking-widest text-zinc-500">Master Quality</span>
                     </div>
                 </div>
             </div>
@@ -132,14 +124,13 @@
                 <div class="flex flex-col md:flex-row items-center gap-6 mt-12 border-t border-white/5 pt-12">
                     <p class="text-[10px] uppercase tracking-[0.4em] text-zinc-500">Phone: +91 98796 86692</p>
                     <span class="hidden md:block h-1 w-1 bg-zinc-800 rounded-full"></span>
-                    <p class="text-[10px] uppercase tracking-[0.4em] text-zinc-500">Instagram: @virat_portfolio</p>
+                    <a href="https://wa.me/919879686692" target="_blank" class="text-[10px] uppercase tracking-[0.4em] text-zinc-500 hover:text-yellow-400 transition">WhatsApp Direct</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Custom Cursor Logic
         const cursor = document.querySelector('#cursor');
         const blur = document.querySelector('#cursor-blur');
         document.addEventListener('mousemove', (e) => {
@@ -149,11 +140,8 @@
             blur.style.top = e.clientY - 100 + 'px';
         });
 
-        // Animations
         gsap.registerPlugin(ScrollTrigger);
-        
         gsap.from(".reveal-hero", { opacity: 0, y: 100, duration: 1.5, ease: "power4.out" });
-        
         gsap.utils.toArray(".reveal").forEach(el => {
             gsap.to(el, {
                 scrollTrigger: { trigger: el, start: "top 85%" },
